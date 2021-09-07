@@ -16,61 +16,79 @@
   </head>
   <body>
     <div class="container">
-      <div class="weather-app-wrapper">
-        <div class="weather-app">
-          <form id="search-form" class="mb-3">
-            <div class="row">
-              <div class="col-9">
-                <input
-                  type="search"
-                  placeholder="Type a city..."
-                  class="form-control"
-                  id="city-input"
-                  autocomplete="off" />
-              </div>
-              <div class="col-3">
-                <input
-                  type="submit"
-                  value="Search"
-                  class="btn btn-primary w-100" />
-              </div>
+
+        <div class ="card">
+          <form id="search-form">
+              <input type="search" placeholder="Enter your city" id="city-input" />
+              <input type="submit" value="Search" class="btn btn-primary" />   
+              <input type= "submit"  value= "Current" id="current-location" class="btn btn-primary" />
+          </div> 
+          </form>      
+          
+         <div class="header">
+         <span class="city" id="city">
+         </span>
+ 
+              
             </div>
           </form>
           <div class="overview">
             <h1 id="city"> </h1>
-            <ul>
-              <li> Last updated: <span id="date"></span></li>
-              <li id="description"></li>
-            </ul>
           </div>
           <div class="row">
             <div class="col-6">
-              <div class="clearfix weather-temperature"> <img src="https://static.thenounproject.com/png/121248-200.png" alt="Clear" id="icon" class="float-left" />
+              <div class="clearfix weather-temperature"> <img src="https://i.pinimg.com/564x/84/a1/6a/84a16af6971e5c4234fa132c06b14969.jpg" alt="Clear" id="icon" class="float-left" />
                 <div class="float-left">
                   <strong id="temperature"></strong>
-                  <span class="units"> °C</span>
+                  <span class="units"> °F</span>
                 </div>
               </div>
             </div>
             <div class="col-6">
               <ul>
-                <li>Humidity: <span id="humidity"></span>%</li>
-                <li>Wind: <span id="wind"></span> m/h</li>
+                <li>Humidity: <span id="humidity"></span> %</li>
+                <li>Wind: <span id="wind"></span> mph</li>
             </ul>
           </div>
         </div>
         <div class="weather-forecast" id="forecast"></div>
-      </div>
-      <small>
-        <a
-          href="https://github.com/kristink12/Weather-App2"
-          target="_blank"
-          >Open-source code</a
-        >
-        by Kristin Peters
-      </small>
+        </div>
     </div>
   </div>
+
+  <div class="container">
+          <div class="row">
+          <div class="col-2">
+            Tue </br> ☁ </br> 89°F Sunny
+          </div>
+          <div class="col-2">
+           Wed </br> 🌤 </br> 90°F Cloudy          
+          </div>
+          <div class="col-2">
+          Thu </br> 🌤 </br> 91°F Sunny 
+          </div>
+          <div class="col-2">
+           Fri </br> 🌧 </br> 92°F Rainy
+          </div>
+          <div class="col-2">
+           Sat </br> 🌤 </br> 93°F Sunny 
+          </div>
+          <div class="col-2">
+           Sun </br> 🌤 </br> 94°F Sunny 
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+
+<small> 
+    <a
+      href="https://github.com/kristink12/Weather-App2"
+      target="_blank" >Open-source code</a>
+    by Kristin Peters
+  </small>
+  <br />
+
   <script src="src/app.js"></script>
 </body>
 </html>
