@@ -84,17 +84,16 @@ function formatDate(timestamp) {
     iconElement.setAttribute("alt", response.data.weather[0].description);
     getForecast(response.data.coord);
   }
-  function search(city) {
+  function searchLocation(position) {
     let apiKey = "6dd72e6648190ab8dc5e804dc75336ed";
-    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=metric`;
     axios.get(apiUrl).then(displayTemperature);
   }
-  function handleSubmit(event) {
+  
+  function getCurrentLocation(event) {
     event.preventDefault();
-    let cityInputElement = document.querySelector("#city-input");
-    search(cityInputElement.value);
+    navigator.geolocation.getCurrentPosition(searchLocation);
   }
-  let form = document.querySelector("#search-form");
-form.addEventListener("submit", handleSubmit);
-
-search("Austin");
+  
+  let currentLocationButton = document.querySelector("#current-location");
+  currentLocationButton.addEventListener("click", handlePosition);
