@@ -13,13 +13,14 @@ h1 {
 ul {
     margin: 0;
     padding: 0;
+    color: green;
 }
 
 li {
     list-style: none;
     margin: 0;
     padding: 0;
-    color: black;
+    color: fuchsia;
     font-size: 15px;
     font-weight: 100;
     line-height: 19px;
@@ -45,7 +46,7 @@ li:first-letter {
     width: 64px;
 }
 .weather-temperature strong {
-    color: rgb(33, 33, 33);
+    color: orangered;
     font-size: 64px;
     line-height: 1;
     font-weight: 400;
@@ -56,7 +57,7 @@ li:first-letter {
     top: -34px;
 }
 .weather-temperature .active {
-    color: rgb(33, 33, 33);
+    color: blueviolet;
     cursor: pointer;
   }
   
@@ -67,7 +68,7 @@ li:first-letter {
   .weather-forecast {
     margin-top: 20px;
     text-align: center;
-    color: #000;
+    color: lightskyblue;
   }
   
   .weather-forecast-date {
