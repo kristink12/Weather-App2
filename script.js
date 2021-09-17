@@ -1,14 +1,14 @@
 function formatDate(timestamp) {
   let date = new Date(timestamp);
-  let hour = date.getHours();
-  if (hour < 10) {
-    hour = `0${date.getHours()}`;
+  let hours = date.getHours();
+  if (hours < 10) {
+    hours = `0${hours}`;
   }
   let minutes = date.getMinutes();
   if (minutes < 10) {
-    minutes = `0${date.getMinutes()}`;
+    minutes = `0${minutes}`;
   }
-  let dayIndex = date.getDay();
+
   let days = [
     "Sunday",
     "Monday",
@@ -18,9 +18,10 @@ function formatDate(timestamp) {
     "Friday",
     "Saturday",
   ];
-  let day = days[dayIndex];
-  return `${day}, ${hour}:${minutes}`;
+  let day = days[date.getDay()];
+  return `${day} ${hours}:${minutes}`;
 }
+
 function formatDay(timestamp) {
   let date = new Date(timestamp * 1000);
   let day = date.getDay();
@@ -28,6 +29,7 @@ function formatDay(timestamp) {
 
   return days[day];
 }
+
 function displayForecast(response) {
   let forecast = response.data.daily;
 
@@ -40,7 +42,7 @@ function displayForecast(response) {
         forecastHTML +
         `
       <div class="col-2">
-         <div class="weather-forecast-date">${formatDay(forecastDay.dt)}</div>
+        <div class="weather-forecast-date">${formatDay(forecastDay.dt)}</div>
         <img
           src="http://openweathermap.org/img/wn/${
             forecastDay.weather[0].icon
@@ -66,7 +68,6 @@ function displayForecast(response) {
 }
 
 function getForecast(coordinates) {
-  console.log(coordinates);
   let apiKey = "6dd72e6648190ab8dc5e804dc75336ed";
   let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(displayForecast);
@@ -110,26 +111,7 @@ function handleSubmit(event) {
   search(cityInputElement.value);
 }
 
-function displayFahrenheitTemperature(event) {
-  event.preventDefault();
-  let temperatureElement = document.querySelector("#temperature");
-  let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
-  temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
-}
-function displayCelsiusTemperature(event) {
-  event.preventDefault();
-  let temperatureElement = document.querySelector("#temperature");
-  temperatureElement.innerHTML = Math.round(celsiusTemperature);
-}
-
-let celsiusTemperature = null;
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
 
-let fahrenheitlink = document.querySelector("#fahrenheit-link");
-fahrenheitlink.addEventListener("click", displayFahrenheitTemperature);
-
-let celsiuslink = document.querySelector("#celsius-link");
-celsiuslink.addEventListener("click", displayCelsiusTemperature);
-
-search("Austin");
+search("New York");
