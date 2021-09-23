@@ -9,6 +9,11 @@
     rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" 
     crossorigin="anonymous" />
 
+    <!--THE BELOW 3 LINES MIGHT NEED TO BE DELETED? JUST TESTING IT OUT-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans&display=swap" rel="stylesheet">
+
     <!--KP:DON'T MESS WITH THE TWO BELOW LINES, THEY ARE 100% CORRECT-->
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <link rel="stylesheet" href="style.css" />
@@ -22,6 +27,7 @@
   <body>
     <div class="container">
       <div class="weather-app">
+      <div class="weather-app-wrapper">
         <form class="search-form" id="search-form">
           <div class="row">
             <div class="col-6">
@@ -34,6 +40,7 @@
                 class="form-control shadow-sm"
               />
             </div>
+            
             <div class="col-3">
               <input
                 type="submit"
@@ -42,35 +49,38 @@
               />
             </div>
             <div class="col-3">
-              <button
+              <button 
+                type="current"
                 class="btn btn-success w-100"
-                id="current-location-button"
-              >
-                Current
+                id="current-location-button">
+                Current location
               </button>
             </div>
           </div>
         </form>
+
         <h1 id="city"></h1>
-        <ul>
+        <h2>
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSU3PfssNLoRKzE4CptgGQf5NgcN-VF3wh90FkYXtLW1Umyvt_0l3Zk-qEsknTLFzeqnik&usqp=CAU" alt="" width="" />
+        </h2>
+        <ul id="top-main-right-col"> <!---START OF UL-->
           <li id="date"></li>
           <li id="description"></li>
-        </ul>
+          <li>Humidity: <span id="humidity"></span>%</li>
+          <li>Wind: <span id="wind"></span> mph</li>
+        
         <div class="row">
           <div class="col-6">
             <div class="clearfix">
               <div class="float-left">
-                <span class="temperature" id="temperature"></span
-                ><span class="units">°C</span>
+                <span class="temperature" id="temperature"></span>
+                <span id="top-units"> 
+                  <a href="#" id="celsius-link">°C</a>  
+                  <a href="#" id="fahrenheit-link">°F</a></span>
               </div>
             </div>
           </div>
-          <div class="col-6">
-            <ul>
-              <li>Humidity: <span id="humidity"></span>%</li>
-              <li>Wind: <span id="wind"></span> mph</li>
-            </ul>
-          </div>
+         </ul> <!--END OF UL-->
         </div>
       </div>
     </div>
