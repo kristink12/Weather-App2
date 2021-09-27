@@ -2,106 +2,79 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Klee+One:wght@600&display=swap"
+      rel="stylesheet" />
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" 
-    rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" 
-    crossorigin="anonymous" />
-
-    <!--THE BELOW 3 LINES MIGHT NEED TO BE DELETED? JUST TESTING IT OUT-->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans&display=swap" rel="stylesheet">
-
-    <!--KP:DON'T MESS WITH THE TWO BELOW LINES, THEY ARE 100% CORRECT-->
+    <link href="https://fonts.googleapis.com/css2?family=Freckle+Face&family=Montserrat:wght@600&family=Orbitron:wght@400;500;600&family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css" />
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <link rel="stylesheet" href="style.css" />
-    
-
-   
-  <title> Weather App SEPT 22nd </title>
-
+    <title>Weather App 26th jeez</title>
   </head>
-  
   <body>
     <div class="container">
       <div class="weather-app">
-      <div class="weather-app-wrapper">
-        <form class="search-form" id="search-form">
+        <div class="row">
+          <div class="col-6">
+        <h1> Buda </h1></div>
+        <div class="col-6">
+        <button id="current-location-button">My current location</button>
+        </div>
+        </div>
+        <div class="row">
+          <div class="col-6">
+            <ul>
+              <li><span id="date"></span></li>
+              <li id="description"></li>
+              <li><div class="clearfix weather-temperature">
+                <img src="" alt="Clear" id="icon" class="float-left" />
+                <div class="float-left"><strong id="current-temperature"></strong><span class="units"> °F</span>
+                  <div class="float-left" id="current-temperature"><span class="units"> °C</span>
+                </div>
+                </li>
+                </ul>
+          </div>
+          <div class="col-6">
+            <ul>
+              <li>Humidity: <span id="humidity"></span>%</li>
+              <li>Wind: <span id="wind"></span> mph</li>
+              <li>Precipitation: <span id="precipitation"></span> 0%</li>
+            </ul>
+          </div>
+        </div>
+        <div class ="weather-forecast" id="forecast"></div>
+        <br />
+        <form id="city-weather">
           <div class="row">
-            <div class="col-6">
+            <div class="col-8">
               <input
                 type="search"
-                placeholder="Type a city..."
-                autofocus="on"
-                autocomplete="off"
-                id="city-input"
-                class="form-control shadow-sm"
-              />
+                placeholder="Type a city...">
+              
             </div>
-            
-            <div class="col-3">
-              <input
-                type="submit"
-                value="Search"
-                class="form-control btn btn-primary shadow-sm w-100"
-              />
-            </div>
-            <div class="col-3">
-              <button 
-                type="current"
-                class="btn btn-success w-100"
-                id="current-location-button">
-                Current location
-              </button>
+            <div class="col-4">
+              <input type="submit" value="Search" class="form-control btn btn-primary shadow-sm w-100">
+              
             </div>
           </div>
         </form>
-
-        <h1 id="city"></h1>
-        <h2>
-          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSU3PfssNLoRKzE4CptgGQf5NgcN-VF3wh90FkYXtLW1Umyvt_0l3Zk-qEsknTLFzeqnik&usqp=CAU" alt="" width="" />
-        </h2>
-        <ul id="top-main-right-col"> <!---START OF UL-->
-          <li id="date"></li>
-          <li id="description"></li>
-          <li>Humidity: <span id="humidity"></span>%</li>
-          <li>Wind: <span id="wind"></span> mph</li>
-        
-        <div class="row">
-          <div class="col-6">
-            <div class="clearfix">
-              <div class="float-left">
-                <span class="temperature" id="temperature"></span>
-                <span id="top-units"> 
-                  <a href="#" id="celsius-link">°C</a>  
-                  <a href="#" id="fahrenheit-link">°F</a></span>
-              </div>
-            </div>
-          </div>
-         </ul> <!--END OF UL-->
-        </div>
       </div>
-    </div>
-<br />
-<br />
-
-<small> 
-  <a
-    href="https://github.com/kristink12/Weather-App2"
-    target="_blank" >Open-source code</a>
-  by Kristin Peters
-</small>
-
-
-<script src="index.js"></script>
-
-<!-- MIGHT NEED TO DELETE THE FOLLOWING LINE...?-->
-<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-  
-<script src="script.js"></script>
-
-
-</body>
+      <small> 
+        <a href="https://github.com/kristink12/Weather-App2"
+          target="_blank" >Open-source code</a>
+        by Kristin Peters
+      </small>
+           <script src="index.js"></script>
+           <script src="script.js"></script>
+        </div>
+  </body>
 </html>
