@@ -14,6 +14,7 @@ function formatDate(timestamp) {
   let day = days[date.getDay()];
   return `${day} ${hours}:${minutes}`;
 }
+
 function formatDay(timestamp) {
   let date = new Date(timestamp * 1000);
   let day = date.getDay();
@@ -66,6 +67,7 @@ function displayTemperature(response) {
   let iconElement = document.querySelector("#icon");
   let descriptionElement = document.querySelector("#description");
   let windElement = document.querySelector("#wind");
+
   imperialTemperature = response.data.main.temp;
   temperatureElement.innerHTML = Math.round(imperialTemperature);
   dateElement.innerHTML = formatDate(response.data.dt * 1000);
